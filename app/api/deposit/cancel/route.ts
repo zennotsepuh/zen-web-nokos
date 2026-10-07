@@ -1,0 +1,1 @@
+import {ditz} from '../../../../lib/ditznesia';import {ok,fail} from '../../../../lib/api';import {NextRequest} from 'next/server';export async function GET(req:NextRequest){try{const p:any={};req.nextUrl.searchParams.forEach((v,k)=>p[k]=v);return ok(await ditz('deposit/cancel',p))}catch(e){return fail(e)}}
