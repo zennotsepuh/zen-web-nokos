@@ -1,0 +1,1 @@
+mport {NextResponse} from 'next/server';export function ok(data:any){return NextResponse.json({ok:true,data})}export function fail(e:any){return NextResponse.json({ok:false,error:e?.message||'Request gagal'},{status:400})}
