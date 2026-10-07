@@ -1,0 +1,1 @@
+import {ditz} from '../../../lib/ditznesia';import {ok,fail} from '../../../lib/api';import {NextRequest} from 'next/server';export async function POST(req:NextRequest){try{const b=await req.json();return ok(await ditz('order',b))}catch(e){return fail(e)}}
