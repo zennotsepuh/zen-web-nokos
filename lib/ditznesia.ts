@@ -1,3 +1,0 @@
-const BASE=process.env.DITZNESIA_API_URL||'https://www.ditznesia.com/api/dev';
-const KEY=process.env.DITZNESIA_API_KEY;
-export async function ditz(path:string, params:Record<string,string|number|undefined>={}){if(!KEY) throw new Error('DITZNESIA_API_KEY belum diatur');const u=new URL(BASE.replace(/\/$/, '')+'/'+path.replace(/^\//,''));u.searchParams.set('apikey',KEY);Object.entries(params).forEach(([k,v])=>{if(v!==undefined)u.searchParams.set(k,String(v))});const r=await fetch(u,{cache:'no-store'});const text=await r.text();let data:any;try{data=JSON.parse(text)}catch{data={raw:text}}if(!r.ok)throw new Error(data?.message||`Provider HTTP ${r.status}`);return data}
