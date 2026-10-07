@@ -1,17 +1,11 @@
-# NOKOS Order Center
+# NOKOS Order Center - Fixed
 
-Production-oriented Next.js starter for a NOKOS storefront using Ditznesia API as a server-side proxy.
+Next.js 14 + Supabase + Ditznesia API proxy.
 
-## Setup
-1. `cp .env.example .env.local`
-2. Create a Supabase project and paste URL + anon key.
-3. Run `supabase/schema.sql` in Supabase SQL Editor.
-4. Put a NEW Ditznesia API key in `DITZNESIA_API_KEY`.
-5. `npm install && npm run dev`
-6. Deploy to Vercel/Node hosting.
+## Deploy
+1. Upload all files to GitHub (do not upload .env.local).
+2. Import repository into Vercel.
+3. Add environment variables from `.env.example`.
+4. Deploy.
 
-## Security
-The Ditznesia key is only read by server route code. Never put it in `NEXT_PUBLIC_*` variables.
-
-## Important
-Provider response shapes can vary. The UI uses common `data/name/code/id/provider` fields; adjust mappings in the pages after checking the exact provider JSON responses.
+This build fixes the malformed TypeScript in the previous archive. Provider response mapping and wallet billing still depend on the exact Ditznesia JSON responses.
